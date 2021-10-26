@@ -1,0 +1,45 @@
+Manifest-Version: 1.0
+Main-Class: Main
+Class-Path: netty-buffer-4.1.63.Final.jar netty-handler-proxy-4.1.63.Fin
+ al.jar lombok-1.18.22.jar nosqldriver-5.2.27.jar netty-common-4.1.63.Fi
+ nal.jar netty-codec-4.1.63.Final.jar netty-handler-4.1.63.Final.jar bcp
+ rov-jdk15on-1.68.jar bcpkix-jdk15on-1.68.jar netty-transport-4.1.63.Fin
+ al.jar netty-resolver-4.1.63.Final.jar netty-codec-socks-4.1.63.Final.j
+ ar netty-codec-http-4.1.63.Final.jar jackson-core-2.12.1.jar sdoutl.jar
+  js-19.1.1.jar avro-1.7.6.jar icu4j-62.1.jar guice-4.2.2.jar jansi-1.17
+ .1.jar jline-2.14.6.jar regex-19.1.1.jar capsule-0.6.3.jar commons-io-2
+ .6.jar fastutil-8.2.3.jar guava-28.0-jre.jar javapoet-1.8.0.jar javatup
+ les-1.2.jar javax.inject-1.jar jettison-1.3.3.jar pgx-api-19.3.2.jar sn
+ akeyaml-1.23.jar aopalliance-1.0.jar fluent-hc-4.5.9.jar httpcore-4.4.1
+ 0.jar ojdbc8-12.2.0.1.jar pgx-pgql-19.3.2.jar argparse4j-0.8.1.jar bdsg
+ -shell-3.0.0.jar callisto-rts-2.6.jar commons-lang-2.6.jar commons-vfs2
+ -2.3.jar graal-sdk-19.1.1.jar httpclient-4.5.9.jar log4j-api-2.11.2.jar
+  log4j-jcl-2.11.2.jar pgx-shell-19.3.2.jar slf4j-api-1.7.26.jar threete
+ nbp-1.3.8.jar bdsg-jshell-3.0.0.jar commons-lang3-3.9.jar groovy-all-2.
+ 4.15.jar log4j-core-2.11.2.jar pgx-client-19.3.2.jar pgx-config-19.3.2.
+ jar pgx-engine-19.3.2.jar pgx-filter-19.3.2.jar pgx-jshell-19.3.2.jar p
+ gx-server-19.3.2.jar commons-codec-1.12.jar gremlin-core-3.4.1.jar jack
+ son-core-2.9.9.jar pgx-runtime-19.3.2.jar rxjava-core-0.20.7.jar truffl
+ e-api-19.1.1.jar commons-logging-1.2.jar failureaccess-1.0.1.jar opguti
+ ls-2018-07-26.jar pgql-lang-1.2-1.1.0.jar antlr4-runtime-4.5.3.jar bdsg
+ -pg_common-3.0.0.jar gremlin-shaded-3.4.1.jar pgx-algorithm-19.3.2.jar 
+ pgx-mllib_api-19.3.2.jar pgx-pg_common-19.3.2.jar pgx-algorithms-19.3.2
+ .jar pgx-loader_api-19.3.2.jar pgx-common_core-19.3.2.jar pgx-common_re
+ st-19.3.2.jar jackson-core-asl-1.9.13.jar javax.servlet-api-4.0.1.jar l
+ og4j-slf4j-impl-2.11.2.jar pgx-compiler_api-19.3.2.jar pgx-file_loaders
+ -19.3.2.jar graph-query-ir-1.2-1.1.0.jar jackson-databind-2.9.9.3.jar j
+ avax.annotation-api-1.2.jar pgx-server_common-19.3.2.jar tomcat-embed-c
+ ore-9.0.24.jar commons-collections-3.2.2.jar guice-multibindings-4.2.0.
+ jar jackson-annotations-2.9.9.jar jackson-mapper-asl-1.9.13.jar bdsg-pg
+ _nosql_loader-3.0.0.jar commons-configuration-1.10.jar commons-configur
+ ation2-2.2.jar oracle-nosql-client-4.5.12.jar pgx-query_optimizer-19.3.
+ 2.jar sdopgdal-bdsg-3.0.0-191011.jar swagger-annotations-1.5.22.jar tom
+ cat-embed-jasper-9.0.24.jar algorithm-0.1.2-20190830-193x.jar jackson-d
+ ataformat-yaml-2.9.9.jar pgx-external_stores_api-19.3.2.jar gm-compiler
+ -0.1.2-20190830-193x.jar algorithm.api-0.1.2-20190830-193x.jar bdsg-two
+ _tables_rdbms_loader-3.0.0.jar gm-compiler-api-0.1.2-20190830-193x.jar 
+ pgx-two_tables_loader_common-19.3.2.jar commons-configuration2-jackson-
+ 0.7.0.jar org.metaborg.spoofax.core.uber-2.5.7.jar pgx-program_generati
+ on_common-19.3.2.jar listenablefuture-9999.0-empty-to-avoid-conflict-wi
+ th-guava.jar
+

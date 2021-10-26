@@ -1,0 +1,21 @@
+2021-10-26 18:43:35.427 UTC INFO [1] Coordinating tasks:JEBackupManagerCopyLogFileMax real permits:1
+2021-10-26 18:43:35.712 UTC INFO [1] No server auth method
+2021-10-26 18:43:35.713 UTC INFO [1] Started ServiceDispatcher. HostPort=DESKTOP-RMNFMID:5002
+2021-10-26 18:43:35.713 UTC INFO [1] DataChannel factory: com.sleepycat.je.rep.utilint.net.SimpleChannelFactory
+2021-10-26 18:43:35.736 UTC INFO [1] DTVLSN at start:0
+2021-10-26 18:43:35.737 UTC INFO [1] node:NullNode(-1) state change from DETACHED to UNKNOWN
+2021-10-26 18:43:35.746 UTC INFO [1] Acceptor started
+2021-10-26 18:43:35.748 UTC INFO [1] Current group size: 0
+2021-10-26 18:43:35.748 UTC INFO [1] Learner started
+2021-10-26 18:43:35.748 UTC INFO [1] New node 1(-1) unknown to rep group
+2021-10-26 18:43:35.748 UTC INFO [1] Learner notified. Proposal:Proposal(0000017cbdea36c4:d144bf6dacb4b26123389358a86984fd:00000001) Value: Value:DESKTOP-RMNFMID$$$5002$$$1$$$1
+2021-10-26 18:43:35.749 UTC INFO [1] Master changed to 1
+2021-10-26 18:43:35.749 UTC INFO [1] Nascent group. 1 is master by virtue of being the first node.
+2021-10-26 18:43:35.749 UTC INFO [1] node:1(1) state change from UNKNOWN to MASTER
+2021-10-26 18:43:35.761 UTC INFO [1] Successfully added node:1(1) HostPort = DESKTOP-RMNFMID: 5002 [ELECTABLE]
+2021-10-26 18:43:35.767 UTC INFO [1] Updated minimum JE group version to 7.5.0
+2021-10-26 18:43:35.767 UTC INFO [1] Node 1 started
+2021-10-26 18:43:35.767 UTC INFO [1] node:NullNode(-1) state change from MASTER to UNKNOWN
+2021-10-26 18:43:35.768 UTC INFO [1] node:1(1) state change from UNKNOWN to MASTER
+2021-10-26 18:43:35.768 UTC INFO [1] Feeder manager accepting requests.
+2021-10-26 18:43:35.769 UTC INFO [1] Joining group as master

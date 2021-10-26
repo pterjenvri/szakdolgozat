@@ -1,0 +1,116 @@
+2021-10-26 18:43:08.723 UTC INFO [snaService] Starting, configuration file: .\kvroot\config.xml
+2021-10-26 18:43:08.769 UTC INFO [snaService] Setting java.net.InetAddress cache ttl to: networkaddress.cache.ttl=10, networkaddress.cache.negative.ttl=10
+2021-10-26 18:43:08.774 UTC INFO [snaService] RMI registry serial filter is configured as: sun.rmi.registry.registryFilter=oracle.kv.**;java.lang.Enum
+2021-10-26 18:43:08.805 UTC INFO [snaService] Creating a Registry on port DESKTOP-RMNFMID:5000 server socket factory:<ClearServerSocketFactory backlog=100 portRange=0,0 acceptMaxActiveConns=0 useAsync>
+2021-10-26 18:43:08.884 UTC INFO [snaService] Successfully created secure proxy for the storage node agent
+2021-10-26 18:43:13.466 UTC INFO [snaService] Bound to registry port 5000 using name snaService with SSF:null
+2021-10-26 18:43:13.467 UTC INFO [snaService] Using mgmt class oracle.kv.impl.mgmt.NoOpAgent
+2021-10-26 18:43:13.834 UTC INFO [snaService] BootstrapAdmin: Starting AdminService
+2021-10-26 18:43:13.835 UTC INFO [snaService] BootstrapAdmin: Started AdminService
+2021-10-26 18:43:13.835 UTC INFO [snaService] Service status changed from STARTING to WAITING_FOR_DEPLOY
+2021-10-26 18:43:13.858 UTC INFO [snaService] Starting in bootstrap mode
+2021-10-26 18:43:13.858 UTC INFO [snaService] Starting commandService on rmi://DESKTOP-RMNFMID:5000/commandService
+2021-10-26 18:43:13.908 UTC INFO [snaService] Successfully created a secure proxy for commandService
+2021-10-26 18:43:18.431 UTC INFO [snaService] commandService service port: 60869
+2021-10-26 18:43:18.431 UTC INFO [snaService] Starting admin:CLIENT_ADMIN on rmi://DESKTOP-RMNFMID:5000/admin:CLIENT_ADMIN
+2021-10-26 18:43:18.526 UTC INFO [snaService] Successfully created a secure proxy for admin:CLIENT_ADMIN
+2021-10-26 18:43:23.786 UTC SEVERE [snaService] Starting admin:CLIENT_ADMIN failedjava.rmi.RemoteException: Can't rebind admin:CLIENT_ADMIN at DESKTOP-RMNFMID:5000 csf: <ClientSocketFactory name=$|admin|main id=1237977692 connectMs=0 readMs=0 localAddr=none> ssf: <ClearServerSocketFactory backlog=100 portRange=0,0 acceptMaxActiveConns=0 useAsync>; nested exception is: 
+	java.rmi.UnmarshalException: Error unmarshaling return header; nested exception is: 
+	java.net.SocketTimeoutException: Read interrupted after stream transferred 1704 bytes because inactive socket Socket[addr=DESKTOP-RMNFMID/172.22.224.1,port=5000,localport=60865] timed out and was forcibly closed, timeout: 5000 ms
+	at oracle.kv.impl.util.registry.RegistryUtils.rebind(RegistryUtils.java:884)
+	at oracle.kv.impl.admin.AdminService$ServiceBinder.initService(AdminService.java:972)
+	at oracle.kv.impl.admin.AdminService$ServiceBinder.<init>(AdminService.java:917)
+	at oracle.kv.impl.admin.AdminService$4.<init>(AdminService.java:315)
+	at oracle.kv.impl.admin.AdminService.startInternal(AdminService.java:313)
+	at oracle.kv.impl.admin.AdminService.access$000(AdminService.java:86)
+	at oracle.kv.impl.admin.AdminService$1.execute(AdminService.java:227)
+	at oracle.kv.impl.fault.ProcessFaultHandler.execute(ProcessFaultHandler.java:153)
+	at oracle.kv.impl.admin.AdminService.start(AdminService.java:223)
+	at oracle.kv.impl.sna.ManagedBootstrapAdmin.start(ManagedBootstrapAdmin.java:120)
+	at oracle.kv.impl.sna.ManagedService.main(ManagedService.java:792)
+	at oracle.kv.impl.sna.ThreadServiceManager.run(ThreadServiceManager.java:35)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.rmi.UnmarshalException: Error unmarshaling return header; nested exception is: 
+	java.net.SocketTimeoutException: Read interrupted after stream transferred 1704 bytes because inactive socket Socket[addr=DESKTOP-RMNFMID/172.22.224.1,port=5000,localport=60865] timed out and was forcibly closed, timeout: 5000 ms
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:236)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:375)
+	at sun.rmi.registry.RegistryImpl_Stub.rebind(RegistryImpl_Stub.java:155)
+	at oracle.kv.impl.util.registry.RegistryUtils$ExceptionWrappingRegistry.rebind(RegistryUtils.java:1440)
+	at oracle.kv.impl.util.registry.RegistryUtils.exportAndRebind(RegistryUtils.java:1281)
+	at oracle.kv.impl.util.registry.RegistryUtils.rebind(RegistryUtils.java:880)
+	... 12 more
+Caused by: java.net.SocketTimeoutException: Read interrupted after stream transferred 1704 bytes because inactive socket Socket[addr=DESKTOP-RMNFMID/172.22.224.1,port=5000,localport=60865] timed out and was forcibly closed, timeout: 5000 ms
+	at oracle.kv.impl.util.registry.TimeoutSocket$TimeoutInputStream.checkClosedTimeout(TimeoutSocket.java:160)
+	at oracle.kv.impl.util.registry.TimeoutSocket$TimeoutInputStream.read(TimeoutSocket.java:211)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readByte(DataInputStream.java:265)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:222)
+	... 17 more
+
+2021-10-26 18:43:23.786 UTC SEVERE [snaService] Process exiting
+java.lang.IllegalStateException: Starting admin:CLIENT_ADMIN failed
+	at oracle.kv.impl.admin.AdminService$ServiceBinder.initService(AdminService.java:982)
+	at oracle.kv.impl.admin.AdminService$ServiceBinder.<init>(AdminService.java:917)
+	at oracle.kv.impl.admin.AdminService$4.<init>(AdminService.java:315)
+	at oracle.kv.impl.admin.AdminService.startInternal(AdminService.java:313)
+	at oracle.kv.impl.admin.AdminService.access$000(AdminService.java:86)
+	at oracle.kv.impl.admin.AdminService$1.execute(AdminService.java:227)
+	at oracle.kv.impl.fault.ProcessFaultHandler.execute(ProcessFaultHandler.java:153)
+	at oracle.kv.impl.admin.AdminService.start(AdminService.java:223)
+	at oracle.kv.impl.sna.ManagedBootstrapAdmin.start(ManagedBootstrapAdmin.java:120)
+	at oracle.kv.impl.sna.ManagedService.main(ManagedService.java:792)
+	at oracle.kv.impl.sna.ThreadServiceManager.run(ThreadServiceManager.java:35)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.rmi.RemoteException: Can't rebind admin:CLIENT_ADMIN at DESKTOP-RMNFMID:5000 csf: <ClientSocketFactory name=$|admin|main id=1237977692 connectMs=0 readMs=0 localAddr=none> ssf: <ClearServerSocketFactory backlog=100 portRange=0,0 acceptMaxActiveConns=0 useAsync>; nested exception is: 
+	java.rmi.UnmarshalException: Error unmarshaling return header; nested exception is: 
+	java.net.SocketTimeoutException: Read interrupted after stream transferred 1704 bytes because inactive socket Socket[addr=DESKTOP-RMNFMID/172.22.224.1,port=5000,localport=60865] timed out and was forcibly closed, timeout: 5000 ms
+	at oracle.kv.impl.util.registry.RegistryUtils.rebind(RegistryUtils.java:884)
+	at oracle.kv.impl.admin.AdminService$ServiceBinder.initService(AdminService.java:972)
+	... 11 more
+Caused by: java.rmi.UnmarshalException: Error unmarshaling return header; nested exception is: 
+	java.net.SocketTimeoutException: Read interrupted after stream transferred 1704 bytes because inactive socket Socket[addr=DESKTOP-RMNFMID/172.22.224.1,port=5000,localport=60865] timed out and was forcibly closed, timeout: 5000 ms
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:236)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:375)
+	at sun.rmi.registry.RegistryImpl_Stub.rebind(RegistryImpl_Stub.java:155)
+	at oracle.kv.impl.util.registry.RegistryUtils$ExceptionWrappingRegistry.rebind(RegistryUtils.java:1440)
+	at oracle.kv.impl.util.registry.RegistryUtils.exportAndRebind(RegistryUtils.java:1281)
+	at oracle.kv.impl.util.registry.RegistryUtils.rebind(RegistryUtils.java:880)
+	... 12 more
+Caused by: java.net.SocketTimeoutException: Read interrupted after stream transferred 1704 bytes because inactive socket Socket[addr=DESKTOP-RMNFMID/172.22.224.1,port=5000,localport=60865] timed out and was forcibly closed, timeout: 5000 ms
+	at oracle.kv.impl.util.registry.TimeoutSocket$TimeoutInputStream.checkClosedTimeout(TimeoutSocket.java:160)
+	at oracle.kv.impl.util.registry.TimeoutSocket$TimeoutInputStream.read(TimeoutSocket.java:211)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readByte(DataInputStream.java:265)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:222)
+	... 17 more
+2021-10-26 18:43:33.510 UTC INFO [snaService] Starting, configuration file: .\kvroot\config.xml
+2021-10-26 18:43:33.517 UTC INFO [snaService] Setting java.net.InetAddress cache ttl to: networkaddress.cache.ttl=10, networkaddress.cache.negative.ttl=10
+2021-10-26 18:43:33.521 UTC INFO [snaService] RMI registry serial filter is configured as: sun.rmi.registry.registryFilter=oracle.kv.**;java.lang.Enum
+2021-10-26 18:43:33.824 UTC INFO [snaService] Creating a Registry on port DESKTOP-RMNFMID:5000 server socket factory:<ClearServerSocketFactory backlog=100 portRange=0,0 acceptMaxActiveConns=0 useAsync>
+2021-10-26 18:43:33.902 UTC INFO [snaService] Successfully created secure proxy for the storage node agent
+2021-10-26 18:43:33.971 UTC INFO [snaService] Bound to registry port 5000 using name snaService with SSF:null
+2021-10-26 18:43:33.972 UTC INFO [snaService] Using mgmt class oracle.kv.impl.mgmt.NoOpAgent
+2021-10-26 18:43:34.313 UTC INFO [snaService] BootstrapAdmin: Starting AdminService
+2021-10-26 18:43:34.314 UTC INFO [snaService] BootstrapAdmin: Started AdminService
+2021-10-26 18:43:34.314 UTC INFO [snaService] Service status changed from STARTING to WAITING_FOR_DEPLOY
+2021-10-26 18:43:34.331 UTC INFO [snaService] Starting in bootstrap mode
+2021-10-26 18:43:34.332 UTC INFO [snaService] Starting commandService on rmi://DESKTOP-RMNFMID:5000/commandService
+2021-10-26 18:43:34.376 UTC INFO [snaService] Successfully created a secure proxy for commandService
+2021-10-26 18:43:34.389 UTC INFO [snaService] commandService service port: 60607
+2021-10-26 18:43:34.389 UTC INFO [snaService] Starting admin:CLIENT_ADMIN on rmi://DESKTOP-RMNFMID:5000/admin:CLIENT_ADMIN
+2021-10-26 18:43:34.488 UTC INFO [snaService] Successfully created a secure proxy for admin:CLIENT_ADMIN
+2021-10-26 18:43:34.494 UTC INFO [snaService] admin:CLIENT_ADMIN service port: 60607
+2021-10-26 18:43:34.494 UTC INFO [snaService] Admin web service is not starting up, web port: -1
+2021-10-26 18:43:34.494 UTC INFO [snaService] Started AdminService
+2021-10-26 18:43:34.494 UTC INFO [snaService] Thread returning for service BootstrapAdmin.5000
+2021-10-26 18:43:35.836 UTC INFO [snaService] Changing log files to log directory for store kvstore
+2021-10-26 18:43:35.944 UTC INFO [snaService] Register: root: .\kvroot, store: kvstore, hostingAdmin: true
+2021-10-26 18:43:35.944 UTC INFO [snaService] System architecture is amd64
+2021-10-26 18:43:35.944 UTC INFO [snaService] Setting number of CPUs to 8
+2021-10-26 18:43:36.165 UTC INFO [snaService] Starting, configuration file: .\kvroot\config.xml
+2021-10-26 18:43:36.171 UTC INFO [snaService] Setting java.net.InetAddress cache ttl to: networkaddress.cache.ttl=10, networkaddress.cache.negative.ttl=10
+2021-10-26 18:43:36.177 UTC INFO [snaService] RMI registry serial filter is configured as: sun.rmi.registry.registryFilter=oracle.kv.**;java.lang.Enum
+2021-10-26 18:43:36.177 UTC INFO [snaService] Registered startup, config file: .\kvroot\kvstore\sn1\config.xml
+2021-10-26 18:43:36.187 UTC INFO [snaService] Changing log files to directory: .\kvroot\kvstore\log
