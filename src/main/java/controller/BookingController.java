@@ -1,13 +1,13 @@
 package controller;
 
-import dao.BookingDAOImpl;
-import dao.IBookingDAO;
-import model.Booking;
+import dao.BorrowingDAOImpl;
+import dao.IBorrowingDAO;
+import model.Borrowing;
 
 import java.util.List;
 
 public class BookingController {
-    private IBookingDAO dao = new BookingDAOImpl();
+    private IBorrowingDAO dao = new BorrowingDAOImpl();
 
     private static BookingController instance;
 
@@ -22,18 +22,18 @@ public class BookingController {
 
     private BookingController() {}
 
-    public void kolcsonoz(Booking booking)
+    public void kolcsonoz(Borrowing borrowing)
     {
-        dao.kolcsonoz(booking);
+        dao.kolcsonoz(borrowing);
     }
 
-    public void visszahoz(Booking booking)
+    public void visszahoz(Borrowing borrowing)
     {
-        dao.visszahoz(booking);
+        dao.visszahoz(borrowing);
     }
 
-    public List<Booking> getBookings()
+    public List<Borrowing> getBorrowings()
     {
-        return dao.getBookings();
+        return dao.getBorrowings();
     }
 }

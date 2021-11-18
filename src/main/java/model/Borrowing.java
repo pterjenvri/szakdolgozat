@@ -6,7 +6,7 @@ import lombok.NonNull;
 import java.io.Serializable;
 
 @Data
-public class Booking implements Serializable {
+public class Borrowing implements Serializable {
     @NonNull
     private String olvasojegySzam;
     @NonNull

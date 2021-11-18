@@ -2,9 +2,8 @@ import controller.BookController;
 import controller.BookingController;
 import controller.UserController;
 import model.Book;
-import model.Booking;
+import model.Borrowing;
 import model.User;
-import oracle.kv.KVStoreConfig;
 import oracle.nosql.driver.NoSQLHandle;
 import oracle.nosql.driver.NoSQLHandleConfig;
 import oracle.nosql.driver.NoSQLHandleFactory;
@@ -124,9 +123,9 @@ public class Main {
 
         Book HarryPotter = new Book("Harry Potter and the Sorcerer's Stone","9780590353403");
 
-        Booking User1RandomBook = new Booking(User1.getOlvasojegySzam(), RandomBook.getISBN());
+        Borrowing User1RandomBook = new Borrowing(User1.getOlvasojegySzam(), RandomBook.getISBN());
 
-        Booking User2HarryPotter = new Booking(User2.getOlvasojegySzam(), HarryPotter.getISBN());
+        Borrowing User2HarryPotter = new Borrowing(User2.getOlvasojegySzam(), HarryPotter.getISBN());
 
         UserController.getInstance().add(User1);
 
@@ -156,19 +155,19 @@ public class Main {
         BookingController.getInstance().kolcsonoz(User2HarryPotter);
 
         System.out.println("Az adatbazisbol kiolvasott kolcsonzesek:");
-        List<Booking> bookings = BookingController.getInstance().getBookings();
-        for(Booking booking : bookings)
+        List<Borrowing> borrowings = BookingController.getInstance().getBorrowings();
+        for(Borrowing borrowing : borrowings)
         {
-            System.out.println(booking.toString());
+            System.out.println(borrowing.toString());
         }
 
         BookingController.getInstance().visszahoz(User1RandomBook);
 
         System.out.println("Az adatbazisbol kiolvasott kolcsonzesek:");
-        bookings = BookingController.getInstance().getBookings();
-        for(Booking booking : bookings)
+        borrowings = BookingController.getInstance().getBorrowings();
+        for(Borrowing borrowing : borrowings)
         {
-            System.out.println(booking.toString());
+            System.out.println(borrowing.toString());
         }
 
         try

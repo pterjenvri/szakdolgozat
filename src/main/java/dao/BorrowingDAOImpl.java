@@ -2,24 +2,20 @@ package dao;
 
 import com.tinkerpop.blueprints.Edge;
 import com.tinkerpop.blueprints.Vertex;
-import model.Booking;
+import model.Borrowing;
 import oracle.pg.nosql.OraclePropertyGraph;
 import oracle.pgql.lang.PgqlException;
 import oracle.pgx.api.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import util.GraphConfig;
 import util.Type;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingDAOImpl implements IBookingDAO {
+public class BorrowingDAOImpl implements IBorrowingDAO {
     private static PgxGraph graph;
     private static OraclePropertyGraph opg;
     private static PgxSession session;
-
-    private static final Logger logger = LogManager.getLogger(BookingDAOImpl.class);
 
     public void openGraph()
     {
@@ -41,22 +37,22 @@ public class BookingDAOImpl implements IBookingDAO {
     }
 
     @Override
-    public void kolcsonoz(Booking booking) {
+    public void kolcsonoz(Borrowing borrowing) {
         openGraph();
         Vertex userVertex = null;
         Vertex bookVertex = null;
         try {
             PgxPreparedStatement userStatement = graph.preparePgql("SELECT u FROM users_graph MATCH (u:?) WHERE u.olvasojegySzam = ?");
-            userStatement.setString(1, Type.USER.toString());
-            userStatement.setString(2, booking.getOlvasojegySzam());
+            userStatement.setString(1, Type.USER);
+            userStatement.setString(2, borrowing.getOlvasojegySzam());
             PgqlResultSet userRs = userStatement.executeQuery();
             for(PgxResult r : userRs)
             {
                 userVertex = opg.getVertex(r.getVertex(1).getId());
             }
             PgxPreparedStatement bookStatement = graph.preparePgql("SELECT u FROM users_graph MATCH (u:?) WHERE u.ISBN = ?");
-            bookStatement.setString(1, Type.BOOK.toString());
-            bookStatement.setString(2, booking.getISBN());
+            bookStatement.setString(1, Type.BOOK);
+            bookStatement.setString(2, borrowing.getISBN());
             PgqlResultSet bookRs = bookStatement.executeQuery();
             for(PgxResult r : bookRs)
             {
@@ -65,15 +61,15 @@ public class BookingDAOImpl implements IBookingDAO {
         } catch (PgqlException e) {
             e.printStackTrace();
         }
-        Edge e1 = opg.addEdge(booking.getOlvasojegySzam() + booking.getISBN(),userVertex,bookVertex,"borrows");
-        e1.setProperty("olvasojegySzam", booking.getOlvasojegySzam());
-        e1.setProperty("ISBN", booking.getISBN());
-        System.out.println("A " + booking.getOlvasojegySzam() + " szammal rendelkezo user kikolcsonozte a " + booking.getISBN() + " ISBN-nel rendelkezo konyvet(letrejott koztuk egy el)");
+        Edge e1 = opg.addEdge(borrowing.getOlvasojegySzam() + borrowing.getISBN(),userVertex,bookVertex,"borrows");
+        e1.setProperty("olvasojegySzam", borrowing.getOlvasojegySzam());
+        e1.setProperty("ISBN", borrowing.getISBN());
+        System.out.println("A " + borrowing.getOlvasojegySzam() + " szammal rendelkezo user kikolcsonozte a " + borrowing.getISBN() + " ISBN-nel rendelkezo konyvet(letrejott koztuk egy el)");
         closeGraph();
     }
 
     @Override
-    public void visszahoz(Booking booking) {
+    public void visszahoz(Borrowing borrowing) {
         openGraph();
         Edge bookingEdge = null;
         try {
@@ -81,8 +77,8 @@ public class BookingDAOImpl implements IBookingDAO {
             bookingStatement.setString(1,Type.USER);
             bookingStatement.setString(2,"borrows");
             bookingStatement.setString(3,Type.BOOK);
-            bookingStatement.setString(4, booking.getOlvasojegySzam());
-            bookingStatement.setString(5, booking.getISBN());
+            bookingStatement.setString(4, borrowing.getOlvasojegySzam());
+            bookingStatement.setString(5, borrowing.getISBN());
             PgqlResultSet bookingRs = bookingStatement.executeQuery();
             for(PgxResult r : bookingRs)
             {
@@ -92,16 +88,16 @@ public class BookingDAOImpl implements IBookingDAO {
             e.printStackTrace();
         }
         opg.removeEdge(bookingEdge);
-        System.out.println("A " + booking.getOlvasojegySzam() + " szammal rendelkezo user visszahozta a " + booking.getISBN() + " ISBN-nel rendelkezo konyvet(torlodott koztuk az el)");
+        System.out.println("A " + borrowing.getOlvasojegySzam() + " szammal rendelkezo user visszahozta a " + borrowing.getISBN() + " ISBN-nel rendelkezo konyvet(torlodott koztuk az el)");
         closeGraph();
     }
 
     @Override
-    public List<Booking> getBookings() {
+    public List<Borrowing> getBorrowings() {
         openGraph();
-        List<Booking> ret = new ArrayList<>();
+        List<Borrowing> ret = new ArrayList<>();
         for (Edge next : opg.getEdges()) {
-            Booking booking = new Booking(next.getProperty("olvasojegySzam").toString(), next.getProperty("ISBN").toString());
+            Borrowing booking = new Borrowing(next.getProperty("olvasojegySzam").toString(), next.getProperty("ISBN").toString());
             ret.add(booking);
         }
         closeGraph();
