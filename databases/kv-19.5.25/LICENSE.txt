@@ -1,4 +1,0 @@
-
-Packages downloaded from the Oracle Software Data Cloud (OSDC) or the
-Oracle Technology Network (OTN) are governed by the license accepted
-as a condition of download.
